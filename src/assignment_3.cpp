@@ -162,8 +162,8 @@ void sceneInit(float width, float height)
     sScene.cameraFollowBoat = true;
     sScene.zoomSpeedMultiplier = 0.05f;
 
-    sScene.boat = boatLoad("assets/boat/boat.obj");
-    sScene.modelWater = modelLoad("assets/water_01/water.obj").front();
+    sScene.boat = boatLoad("../assets/boat/boat.obj");
+    sScene.modelWater = modelLoad("../assets/water_01/water.obj").front();
 
     sScene.renderBlinnPhong = true;
 
