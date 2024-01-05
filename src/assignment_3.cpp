@@ -236,12 +236,13 @@ void renderBlinnPhong()
         for(auto& material : model.material)
         {
             /* set material properties */
-            shaderUniform(sScene.shaderBlinnPhong, "uMaterial.ambient", material.ambient);
-            shaderUniform(sScene.shaderBlinnPhong, "uMaterial.diffuse", material.diffuse);
-            shaderUniform(sScene.shaderBlinnPhong, "uMaterial.specular", material.specular);
+            shaderTextUniform(sScene.shaderBlinnPhong, "uMaterial.ambient", material.map_ambient);
+            shaderTextUniform(sScene.shaderBlinnPhong, "uMaterial.diffuse", material.map_diffuse);
+            shaderSpecUniform(sScene.shaderBlinnPhong, "uMaterial.specular", material.map_specular);
             shaderUniform(sScene.shaderBlinnPhong, "uMaterial.shininess", material.shininess);
 
             glDrawElements(GL_TRIANGLES, material.indexCount, GL_UNSIGNED_INT, (const void*) (material.indexOffset*sizeof(unsigned int)) );
+
         }
     }
 
