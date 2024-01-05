@@ -293,9 +293,9 @@ void renderBlinnPhong()
     for(auto& material : sScene.modelWater.material)
     {
         /* set material properties */
-        shaderUniform(sScene.shaderWater, "uMaterial.ambient", material.ambient);
-        shaderUniform(sScene.shaderWater, "uMaterial.diffuse", material.diffuse);
-        shaderUniform(sScene.shaderWater, "uMaterial.specular", material.specular);
+        shaderTextUniform(sScene.shaderWater, "uMaterial.ambient", material.map_ambient);
+        shaderTextUniform(sScene.shaderWater, "uMaterial.diffuse", material.map_diffuse);
+        shaderSpecUniform(sScene.shaderWater, "uMaterial.specular", material.map_specular);
         shaderUniform(sScene.shaderWater, "uMaterial.shininess", material.shininess);
 
         glDrawElements(GL_TRIANGLES, material.indexCount, GL_UNSIGNED_INT, (const void*) (material.indexOffset*sizeof(unsigned int)) );
