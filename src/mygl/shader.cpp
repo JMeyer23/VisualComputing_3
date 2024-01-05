@@ -1,4 +1,5 @@
 #include "shader.h"
+#include "texture.h"
 
 #include <fstream>
 #include <sstream>
@@ -174,4 +175,20 @@ void shaderUniform(ShaderProgram &shader, const std::string &name, float value)
 {
     GLint index = detail::uniform_index(shader, name);
     glUniform1f(index, value);
+}
+
+void shaderTextUniform(ShaderProgram &shader, const std::string &name, const Texture &texture)
+{
+    glBindTexture(GL_TEXTURE_2D, texture.id);
+
+    GLint index = detail::uniform_index(shader, name);
+    glUniform1i(index, 0);
+}
+
+void shaderSpecUniform(ShaderProgram &shader, const std::string &name, const Texture &texture)
+{
+    glBindTexture(GL_TEXTURE_2D, texture.id);
+
+    GLint index = detail::uniform_index(shader, name);
+    glUniform1i(index, 1);
 }
