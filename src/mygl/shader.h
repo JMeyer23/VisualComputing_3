@@ -1,6 +1,7 @@
 #pragma once
 
 #include "base.h"
+#include "texture.h"
 
 struct ShaderProgram
 {
@@ -89,3 +90,25 @@ void shaderUniform(ShaderProgram& shader, const std::string& name, int value);
  * @param value Value to which the uniform should be set.
  */
 void shaderUniform(ShaderProgram& shader, const std::string& name, float value);
+
+
+/**
+ * @brief Function to set uniform in shader program.
+ *
+ * @param shader Shader program.
+ * @param name Uniform naem.
+ * @param value Value to which the uniform should be set.
+ */
+
+void shaderTextUniform(ShaderProgram& shader, const std::string& name, const Texture& texture);
+
+/**
+ * @brief Function to set uniform in shader program.
+ *
+ * @param shader Shader program.
+ * @param name Uniform naem.
+ * @param value Value to which the uniform should be set.
+ */
+
+void shaderSpecUniform(ShaderProgram& shader, const std::string& name, const Texture& texture);
+
